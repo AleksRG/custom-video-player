@@ -1,82 +1,61 @@
 import Head from 'next/head'
+import Video from '../components/Video'
 
 export default function Home() {
+  const videos = [
+    {
+      id: 1,
+      video:
+        'https://data-1.utreon.com/v/ZD/hl/ZW/73y2oktikB0/73y2oktikB0_original.mp4',
+      title: 'Maldives',
+    },
+    {
+      id: 2,
+      video:
+        'https://data-1.utreon.com/v/ZT/I0/ZD/ARRdEy0x4kY/ARRdEy0x4kY_original.mp4',
+      title: 'Thailand',
+    },
+    {
+      id: 3,
+      video:
+        'https://data-1.utreon.com/v/ND/U0/Mm/gwl_mVZ4TTI/gwl_mVZ4TTI_original.mp4',
+      title: 'Dubai',
+    },
+    {
+      id: 4,
+      video:
+        'https://data-1.utreon.com/v/Mj/A4/MG/Et0S0d8kVV8/Et0S0d8kVV8_original.mp4',
+      title: 'Japan',
+    },
+    {
+      id: 5,
+      video:
+        'https://data-1.utreon.com/v/OT/k0/Mz/etjf0SfpjCc/etjf0SfpjCc_original.mp4',
+      title: 'Bali',
+    },
+    {
+      id: 6,
+      video:
+        'https://data-1.utreon.com/v/Mm/E2/ZD/mzVyiAjYoTI/mzVyiAjYoTI_original.mp4',
+      title: 'Paris',
+    },
+  ]
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div>
       <Head>
-        <title>Create Next App</title>
+        <title>StreamHub</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <div>
+        <div className="max-h-screen snap-y snap-mandatory overflow-scroll scrollbar-hide">
+          {videos.map(({ id, video, title }) => (
+            <div className="snap-start" key={id}>
+              {' '}
+              <Video url={video} title={title} />
+            </div>
+          ))}
         </div>
-      </main>
-
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="ml-2 h-4" />
-        </a>
-      </footer>
+      </div>
     </div>
   )
 }
